@@ -1,3 +1,7 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "https://igjit.github.io/"
+languageCode = "ja"
+title = "igjit status"
+theme = "hugo_theme_pickles"
+
+[params]
+  ga_api_key = "UA-57209397-3"
