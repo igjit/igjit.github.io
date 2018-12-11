@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://igjit.github.io/posts/2018/12/r-books/</loc>
+    <lastmod>2018-12-11T06:40:11+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/posts/</loc>
+    <lastmod>2018-12-11T06:40:11+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/tags/r/</loc>
+    <lastmod>2018-12-11T06:40:11+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/tags/</loc>
+    <lastmod>2018-12-11T06:40:11+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/</loc>
+    <lastmod>2018-12-11T06:40:11+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
