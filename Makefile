@@ -5,7 +5,7 @@ server:
 	hugo server -D -t $(HUGO_THEME)
 
 build:
-	hugo -t $(HUGO_THEME)
+	hugo --cleanDestinationDir -t $(HUGO_THEME)
 
 publish: build
 	git add $(PUBLIC_DIR)
