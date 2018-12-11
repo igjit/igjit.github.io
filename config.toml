@@ -4,4 +4,20 @@ title = "igjit status"
 theme = "hugo_theme_pickles"
 
 [params]
+  twitter = "igjit"
+  github = "igjit"
   ga_api_key = "UA-57209397-3"
+  author = "igjit"
+  avatar = "/images/avatar.png"
+  bio = "Software Engineer"
+  subtitle = "echo $?"
+
+[[menu.main]]
+    name = "Posts"
+    url = "/posts"
+    weight = 1
+
+[[menu.main]]
+    name = "Slides"
+    url = "https://igjit.github.io/slides/"
+    weight = 2
