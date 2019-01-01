@@ -1,5 +1,6 @@
 baseURL = "https://igjit.github.io/"
 languageCode = "ja"
+hasCJKLanguage = true
 title = "igjit status"
 theme = "hugo_theme_pickles"
 
