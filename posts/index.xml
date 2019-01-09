@@ -6,10 +6,19 @@
     <description>Recent content in Posts on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 11 Dec 2018 06:40:11 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 10 Jan 2019 08:21:56 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LTを5分で終わらせる技術</title>
+      <link>https://igjit.github.io/posts/2019/01/lt-in-5minutes/</link>
+      <pubDate>Thu, 10 Jan 2019 08:21:56 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2019/01/lt-in-5minutes/</guid>
+      <description>LTを5分で終わらせる技術、について社内でLTしてきました。 スライド: https://igjit.github.io/slides/2019/01/lt-in-5minutes/#/ 事前に「このLT自体が5分で終わらなかったら説得力ゼロだよね」って話</description>
+    </item>
     
     <item>
       <title>プログラマーのためのRの参考書</title>

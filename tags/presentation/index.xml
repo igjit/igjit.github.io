@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>igjit status</title>
-    <link>https://igjit.github.io/</link>
-    <description>Recent content on igjit status</description>
+    <title>Presentation on igjit status</title>
+    <link>https://igjit.github.io/tags/presentation/</link>
+    <description>Recent content in Presentation on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Thu, 10 Jan 2019 08:21:56 +0900</lastBuildDate>
     
-	<atom:link href="https://igjit.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://igjit.github.io/tags/presentation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://igjit.github.io/posts/2019/01/lt-in-5minutes/</guid>
       <description>LTを5分で終わらせる技術、について社内でLTしてきました。 スライド: https://igjit.github.io/slides/2019/01/lt-in-5minutes/#/ 事前に「このLT自体が5分で終わらなかったら説得力ゼロだよね」って話</description>
-    </item>
-    
-    <item>
-      <title>プログラマーのためのRの参考書</title>
-      <link>https://igjit.github.io/posts/2018/12/r-books/</link>
-      <pubDate>Tue, 11 Dec 2018 06:40:11 +0900</pubDate>
-      
-      <guid>https://igjit.github.io/posts/2018/12/r-books/</guid>
-      <description>R Advent Calendar 2018の11日目の記事です。 同僚(非Rユーザーのプログラマー)に、Rの良い本を教えてほしいと言われたので、私が良いと思うRの本を挙げ</description>
     </item>
     
   </channel>
