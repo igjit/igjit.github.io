@@ -12,6 +12,7 @@ theme = "hugo_theme_pickles"
   avatar = "/images/avatar.png"
   bio = "Software Engineer"
   subtitle = "echo $?"
+  custom_css = ["css/custom.css"]
 
 [[menu.main]]
     name = "Posts"
