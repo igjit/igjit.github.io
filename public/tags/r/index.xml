@@ -6,10 +6,19 @@
     <description>Recent content in R on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 11 Dec 2018 06:40:11 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 15 Feb 2019 07:52:43 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Emacsでconflrを使う</title>
+      <link>https://igjit.github.io/posts/2019/02/emacs-conflr/</link>
+      <pubDate>Fri, 15 Feb 2019 07:52:43 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2019/02/emacs-conflr/</guid>
+      <description>先日、R MarkdownをConfluenceに投稿するためのRパッケージ、conflrが公開されました。 conflr: R MarkdownをConflu</description>
+    </item>
     
     <item>
       <title>プログラマーのためのRの参考書</title>
