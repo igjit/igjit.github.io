@@ -6,10 +6,19 @@
     <description>Recent content in Posts on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 10 Jan 2019 08:21:56 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 15 Feb 2019 07:52:43 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Emacsでconflrを使う</title>
+      <link>https://igjit.github.io/posts/2019/02/emacs-conflr/</link>
+      <pubDate>Fri, 15 Feb 2019 07:52:43 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2019/02/emacs-conflr/</guid>
+      <description>先日、R MarkdownをConfluenceに投稿するためのRパッケージ、conflrが公開されました。 conflr: R MarkdownをConflu</description>
+    </item>
     
     <item>
       <title>LTを5分で終わらせる技術</title>
