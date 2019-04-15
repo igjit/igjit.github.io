@@ -4,6 +4,9 @@ HUGO_THEME = hugo_theme_pickles
 server:
 	hugo server -D -t $(HUGO_THEME)
 
+draft:
+	hugo new `date '+posts/%Y/%m/draft.md'`
+
 build:
 	hugo --cleanDestinationDir -t $(HUGO_THEME)
 
