@@ -15,6 +15,8 @@ tags: ["R"]
 
 [プログラミング言語の基礎概念](http://www.fos.kuis.kyoto-u.ac.jp/~igarashi/CoPL/index.cgi)という本に出てくる型推論のアルゴリズムをRで実装して遊んでみた、という内容です。
 
+実装はこちら: <https://github.com/igjit/typrr>
+
 ## Emacsで動かす
 
 当日の型検査のデモはEmacsで行いました。(RStudioで動くようにしようと思ったけど間に合わなかった)
