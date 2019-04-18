@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>LTを5分で終わらせる技術</title>
-  <meta property="og:title" content="LTを5分で終わらせる技術" />
-  <meta name="twitter:title" content="LTを5分で終わらせる技術" />
+  <title>できる Flycheck拡張 (shell scriptでチェッカーを実装する)</title>
+  <meta property="og:title" content="できる Flycheck拡張 (shell scriptでチェッカーを実装する)" />
+  <meta name="twitter:title" content="できる Flycheck拡張 (shell scriptでチェッカーを実装する)" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content="igjit"/>
   <meta property="og:site_name" content="igjit status" />
-  <meta property="og:url" content="https://igjit.github.io/posts/2019/01/lt-in-5minutes/" />
+  <meta property="og:url" content="https://igjit.github.io/posts/2019/04/flycheck-in-shell/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -58,31 +58,95 @@
 
 <article class="p-article">
   <header>
-    <h1>LTを5分で終わらせる技術</h1>
+    <h1>できる Flycheck拡張 (shell scriptでチェッカーを実装する)</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2019-01-10T08:21:56&#43;09:00">
-          Jan 10, 2019
+        <time datetime="2019-04-19T08:00:00&#43;09:00">
+          Apr 19, 2019
         </time>
       </div>
       
-      <a href="https://igjit.github.io/tags/presentation" class="c-tag">Presentation</a>
+      <a href="https://igjit.github.io/tags/emacs" class="c-tag">Emacs</a>
+      
+      <a href="https://igjit.github.io/tags/flycheck" class="c-tag">Flycheck</a>
+      
+      <a href="https://igjit.github.io/tags/shell" class="c-tag">Shell</a>
       
     </div>
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p>LTを5分で終わらせる技術、について社内でLTしてきました。</p>
+    
 
-<div class="iframe-wrapper" style="padding-top:56.25%">
-<iframe src="https://igjit.github.io/slides/2019/01/lt-in-5minutes/#/">
-</iframe>
-</div>
+<p><a href="https://www.flycheck.org">Flycheck</a>はEmacsのデファクトスタンダードな構文チェッカーです。</p>
 
-<p><a href="https://igjit.github.io/slides/2019/01/lt-in-5minutes/#/">https://igjit.github.io/slides/2019/01/lt-in-5minutes/#/</a></p>
+<p>以前<a href="https://github.com/igjit/flycheck-copl">マイナーな言語の構文チェッカー</a>を自作しました。
+Flycheckの拡張は思ったより簡単にできたので、ここでやり方を紹介しておきます。</p>
 
-<p>事前に「このLT自体が5分で終わらなかったら説得力ゼロだよね」って話をしてましたが無事に5分以内に終わりました。よかったよかった。</p>
+<p>基本的には<a href="https://www.flycheck.org/en/latest/developer/developing.html">Developer’s Guide</a>に必要なことは全て書いてあるので、わからないことがあったらこちらを参照すると良いかと思います。</p>
+
+<p>この記事では、より気軽に実践できるように、構文チェッカー本体をshell scriptで実装します。</p>
+
+<h2 id="shell-scriptでチェッカーを書く">shell scriptでチェッカーを書く</h2>
+
+<p>例としてコード中の<code>TODO</code>コメントを警告するという(おせっかいな)チェッカーをshell scriptで実装してみましょう。</p>
+
+<p>こんなshell scriptをチェックの対象とします。(<code>bad.sh</code>)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># TODO: 引数チェック</span>
+name<span style="color:#f92672">=</span>$1
+
+echo <span style="color:#e6db74">&#34;Hello, </span><span style="color:#e6db74">${</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#75715e"># TODO: 気の利いたことを言う</span>
+echo <span style="color:#e6db74">&#39;Bye!&#39;</span></code></pre></div>
+<p>試しにgrepで問題のある行を抽出してみます。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat bad.sh | grep -n TODO
+<span style="color:#ae81ff">3</span>:# TODO: 引数チェック
+<span style="color:#ae81ff">8</span>:# TODO: 気の利いたことを言う</code></pre></div>
+<p>エラーメッセージっぽく整形。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat bad.sh | grep -n TODO | awk -F: <span style="color:#e6db74">&#39;{print &#34;warning:&#34;$1&#34;:TODO comments should be removed.&#34;}&#39;</span>
+warning:3:TODO comments should be removed.
+warning:8:TODO comments should be removed.</code></pre></div>
+<p>エラーのフォーマットは</p>
+
+<pre><code>エラーの種類:行:エラーメッセージ
+</code></pre>
+
+<p>としました。</p>
+
+<p>良さそうなら以下のようなshell scriptとして保存しておきます。(<code>check_todo.sh</code>)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+cat $1 |
+    grep -n TODO |
+    awk -F: <span style="color:#e6db74">&#39;{print &#34;warning:&#34;$1&#34;:TODO comments should be removed.&#34;}&#39;</span></code></pre></div>
+<p>実行権限を付与</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">chmod +x check_todo.sh</code></pre></div>
+<p>Emacsの<code>exec-path</code>の通った所に置いておきます。例えば</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(add-to-list <span style="color:#e6db74">&#39;exec-path</span> <span style="color:#e6db74">&#34;~/bin&#34;</span>)</code></pre></div>
+<p>と設定してあったら</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp check_todo.sh ~/bin</code></pre></div>
+<h2 id="flycheckの設定">Flycheckの設定</h2>
+
+<p>先程のshell scriptをFlycheckから呼び出せるようにします。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(require <span style="color:#e6db74">&#39;flycheck</span>)
+
+(flycheck-define-checker sh-todo-checker
+  <span style="color:#e6db74">&#34;Check TODO comment&#34;</span>
+  <span style="color:#e6db74">:command</span> (<span style="color:#e6db74">&#34;check_todo.sh&#34;</span> source)
+  <span style="color:#e6db74">:error-patterns</span>
+  ((warning line-start <span style="color:#e6db74">&#34;warning:&#34;</span> line <span style="color:#e6db74">&#34;:&#34;</span> (message) line-end))
+  <span style="color:#e6db74">:modes</span> sh-mode)
+
+(add-to-list <span style="color:#e6db74">&#39;flycheck-checkers</span> <span style="color:#e6db74">&#39;sh-todo-checker</span>)</code></pre></div>
+<p><code>:error-patterns</code>でFlycheckのDSLを使ってエラーのフォーマットを指定しています。</p>
+
+<p>shell scriptを開いてFlycheckを有効にすれば警告が表示されるはずです。</p>
+
+<p><img src="/images/posts/2019/04/flycheck-in-shell/flycheck.png" alt="" /></p>
 
   </section>
   <footer>
@@ -91,17 +155,30 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://igjit.github.io/posts/2018/12/r-books/">Newer</a>
+          <a href="https://igjit.github.io/posts/2019/04/tokyor-77-typrr/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://igjit.github.io/posts/2019/02/emacs-conflr/">Older</a>
           
         </div>
       </div>
     </nav>
     
+
+<section class="p-related">
+  <h3>See Also</h3>
+  <ul id="slider" class="p-related__list">
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2019/02/emacs-conflr/"
+        >
+        <span>Emacsでconflrを使う</span>
+      </a>
+    </li>
+    
+  </ul>
+</section>
 
 
     

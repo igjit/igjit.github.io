@@ -3,9 +3,44 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://igjit.github.io/posts/</loc>
-    <lastmod>2019-04-15T20:00:53+09:00</lastmod>
+    <loc>https://igjit.github.io/tags/emacs/</loc>
+    <lastmod>2019-04-19T08:00:00+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/tags/flycheck/</loc>
+    <lastmod>2019-04-19T08:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/posts/</loc>
+    <lastmod>2019-04-19T08:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/tags/shell/</loc>
+    <lastmod>2019-04-19T08:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/tags/</loc>
+    <lastmod>2019-04-19T08:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/</loc>
+    <lastmod>2019-04-19T08:00:00+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/posts/2019/04/flycheck-in-shell/</loc>
+    <lastmod>2019-04-19T08:00:00+09:00</lastmod>
   </url>
   
   <url>
@@ -15,26 +50,8 @@
   </url>
   
   <url>
-    <loc>https://igjit.github.io/tags/</loc>
-    <lastmod>2019-04-15T20:00:53+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://igjit.github.io/posts/2019/04/tokyor-77-typrr/</loc>
     <lastmod>2019-04-15T20:00:53+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://igjit.github.io/</loc>
-    <lastmod>2019-04-15T20:00:53+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://igjit.github.io/tags/emacs/</loc>
-    <lastmod>2019-02-15T07:52:43+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
