@@ -6,10 +6,19 @@
     <description>Recent content in Posts on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 15 Apr 2019 20:00:53 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 19 Apr 2019 08:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>できる Flycheck拡張 (shell scriptでチェッカーを実装する)</title>
+      <link>https://igjit.github.io/posts/2019/04/flycheck-in-shell/</link>
+      <pubDate>Fri, 19 Apr 2019 08:00:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2019/04/flycheck-in-shell/</guid>
+      <description>FlycheckはEmacsのデファクトスタンダードな構文チェッカーです。 以前マイナーな言語の構文チェッカーを自作しました。 Flycheck</description>
+    </item>
     
     <item>
       <title>Tokyo.R #77 でRの型検査を実装した話をした</title>
