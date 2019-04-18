@@ -3,6 +3,7 @@ languageCode = "ja"
 hasCJKLanguage = true
 title = "igjit status"
 theme = "hugo_theme_pickles"
+pygmentsCodeFences = true
 
 [params]
   twitter = "igjit"
