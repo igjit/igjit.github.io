@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pandoc on igjit status</title>
+    <link>https://igjit.github.io/tags/pandoc/</link>
+    <description>Recent content in pandoc on igjit status</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 20 Apr 2019 08:00:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://igjit.github.io/tags/pandoc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>pandocで生成するreveal.jsスライドにTwiter Cardを追加する</title>
+      <link>https://igjit.github.io/posts/2019/04/reveal-twiter-card/</link>
+      <pubDate>Sat, 20 Apr 2019 08:00:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2019/04/reveal-twiter-card/</guid>
+      <description>pandocで生成するreveal.jsスライドにTwiter Cardを追加します。 スライドのURLがこんな感じに表示されるようになります。</description>
+    </item>
+    
+  </channel>
+</rss>
