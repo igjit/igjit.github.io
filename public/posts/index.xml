@@ -6,10 +6,19 @@
     <description>Recent content in Posts on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 19 Apr 2019 08:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 20 Apr 2019 08:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>pandocで生成するreveal.jsスライドにTwiter Cardを追加する</title>
+      <link>https://igjit.github.io/posts/2019/04/reveal-twiter-card/</link>
+      <pubDate>Sat, 20 Apr 2019 08:00:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2019/04/reveal-twiter-card/</guid>
+      <description>pandocで生成するreveal.jsスライドにTwiter Cardを追加します。 スライドのURLがこんな感じに表示されるようになります。</description>
+    </item>
     
     <item>
       <title>できる Flycheck拡張 (shell scriptでチェッカーを実装する)</title>

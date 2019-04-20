@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>できる Flycheck拡張 (shell scriptでチェッカーを実装する)</title>
-  <meta property="og:title" content="できる Flycheck拡張 (shell scriptでチェッカーを実装する)" />
-  <meta name="twitter:title" content="できる Flycheck拡張 (shell scriptでチェッカーを実装する)" />
+  <title>pandocで生成するreveal.jsスライドにTwiter Cardを追加する</title>
+  <meta property="og:title" content="pandocで生成するreveal.jsスライドにTwiter Cardを追加する" />
+  <meta name="twitter:title" content="pandocで生成するreveal.jsスライドにTwiter Cardを追加する" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content="igjit"/>
   <meta property="og:site_name" content="igjit status" />
-  <meta property="og:url" content="https://igjit.github.io/posts/2019/04/flycheck-in-shell/" />
+  <meta property="og:url" content="https://igjit.github.io/posts/2019/04/reveal-twiter-card/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -58,20 +58,18 @@
 
 <article class="p-article">
   <header>
-    <h1>できる Flycheck拡張 (shell scriptでチェッカーを実装する)</h1>
+    <h1>pandocで生成するreveal.jsスライドにTwiter Cardを追加する</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2019-04-19T08:00:00&#43;09:00">
-          Apr 19, 2019
+        <time datetime="2019-04-20T08:00:00&#43;09:00">
+          Apr 20, 2019
         </time>
       </div>
       
-      <a href="https://igjit.github.io/tags/emacs" class="c-tag">Emacs</a>
+      <a href="https://igjit.github.io/tags/presentation" class="c-tag">Presentation</a>
       
-      <a href="https://igjit.github.io/tags/flycheck" class="c-tag">Flycheck</a>
-      
-      <a href="https://igjit.github.io/tags/shell" class="c-tag">Shell</a>
+      <a href="https://igjit.github.io/tags/pandoc" class="c-tag">pandoc</a>
       
     </div>
   </header>
@@ -79,74 +77,60 @@
   <section id="js-article" class="p-article__body">
     
 
-<p><a href="https://www.flycheck.org">Flycheck</a>はEmacsのデファクトスタンダードな構文チェッカーです。</p>
+<p>pandocで生成するreveal.jsスライドに<a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary">Twiter Card</a>を追加します。</p>
 
-<p>以前<a href="https://github.com/igjit/flycheck-copl">マイナーな言語の構文チェッカー</a>を自作しました。
-Flycheckの拡張は思ったより簡単にできたので、ここでやり方を紹介しておきます。</p>
+<p><a href="https://igjit.github.io/slides/2018/12/nrc/#/">スライドのURL</a>がこんな感じに表示されるようになります。</p>
 
-<p>基本的には<a href="https://www.flycheck.org/en/latest/developer/developing.html">Developer’s Guide</a>に必要なことは全て書いてあるので、わからないことがあったらこちらを参照すると良いかと思います。</p>
+<p><img src="/images/posts/2019/04/reveal-twiter-card/card.png" alt="" /></p>
 
-<p>この記事では、より気軽に実践できるように、構文チェッカー本体をshell scriptで実装します。</p>
+<p>2つの方法を試しました。</p>
 
-<h2 id="shell-scriptでチェッカーを書く">shell scriptでチェッカーを書く</h2>
+<h2 id="1-スライドごとにタグを追加する">1. スライドごとにタグを追加する</h2>
 
-<p>例としてコード中の<code>TODO</code>コメントを警告するという(おせっかいな)チェッカーをshell scriptで実装してみましょう。</p>
+<p>pandocの<a href="https://github.com/jgm/pandoc/blob/fb1f76ddee89114a0cd1be2b2ec0c3abbad80dca/data/templates/default.revealjs#L56">reveal.jsテンプレート</a>に<code>header-includes</code>という変数が用意されています。</p>
 
-<p>こんなshell scriptをチェックの対象とします。(<code>bad.sh</code>)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e"># TODO: 引数チェック</span>
-name<span style="color:#f92672">=</span>$1
+<p>なのでこんな感じでスライドのYAMLメタデータブロックに書けば<code>head</code>内にタグが追加されます。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
+header-includes:
+    <span style="color:#66d9ef">-</span> &lt;meta name=&#34;twitter:card&#34; content=&#34;summary&#34; /&gt;
+    <span style="color:#66d9ef">-</span> &lt;meta name=&#34;twitter:title&#34; content=&#34;サンプルスライド&#34; /&gt;
+    <span style="color:#66d9ef">-</span> &lt;meta name=&#34;twitter:image&#34; content=&#34;https://farm6.staticflickr.com/5510/14338202952_93595258ff_z.jpg&#34; /&gt;
+---
 
-echo <span style="color:#e6db74">&#34;Hello, </span><span style="color:#e6db74">${</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+スライドの内容...</code></pre></div>
+<h2 id="2-テンプレートをカスタマイズする">2. テンプレートをカスタマイズする</h2>
 
-<span style="color:#75715e"># TODO: 気の利いたことを言う</span>
-echo <span style="color:#e6db74">&#39;Bye!&#39;</span></code></pre></div>
-<p>試しにgrepで問題のある行を抽出してみます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat bad.sh | grep -n TODO
-<span style="color:#ae81ff">3</span>:# TODO: 引数チェック
-<span style="color:#ae81ff">8</span>:# TODO: 気の利いたことを言う</code></pre></div>
-<p>エラーメッセージっぽく整形。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat bad.sh | grep -n TODO | awk -F: <span style="color:#e6db74">&#39;{print &#34;warning:&#34;$1&#34;:TODO comments should be removed.&#34;}&#39;</span>
-warning:3:TODO comments should be removed.
-warning:8:TODO comments should be removed.</code></pre></div>
-<p>エラーのフォーマットは</p>
+<p>上記の方法は手軽ですが、スライドを作るたびに同じ内容を書かなければならなくて面倒です。
+その場合はpandocのテンプレートをカスタマイズします。</p>
 
-<pre><code>エラーの種類:行:エラーメッセージ
-</code></pre>
+<p>デフォルトのテンプレートをファイルに吐く</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pandoc --print-default-template revealjs &gt; template.html</code></pre></div>
+<p>テンプレートにmetaタグを追記</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:card&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;summary&#34;</span> /&gt;
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:title&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$pagetitle$&#34;</span> /&gt;
+$if(meta-image)$
+  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:image&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$meta-image$&#34;</span> /&gt;
+$endif$</code></pre></div>
+<p>スライドのYAMLメタデータブロック</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
+pagetitle: サンプルスライド
+title: |
+    サンプル \
+    スライド
+---
 
-<p>としました。</p>
+スライドの内容...</code></pre></div>
+<p><code>pagetitle</code> は<code>&lt;title&gt;</code>と<code>twitter:card</code>属性、<code>title</code>はスライドのタイトルになります。(ややこしい)</p>
 
-<p>良さそうなら以下のようなshell scriptとして保存しておきます。(<code>check_todo.sh</code>)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
-</span><span style="color:#75715e"></span>
-cat $1 |
-    grep -n TODO |
-    awk -F: <span style="color:#e6db74">&#39;{print &#34;warning:&#34;$1&#34;:TODO comments should be removed.&#34;}&#39;</span></code></pre></div>
-<p>実行権限を付与</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">chmod +x check_todo.sh</code></pre></div>
-<p>Emacsの<code>exec-path</code>の通った所に置いておきます。例えば</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(add-to-list <span style="color:#e6db74">&#39;exec-path</span> <span style="color:#e6db74">&#34;~/bin&#34;</span>)</code></pre></div>
-<p>と設定してあったら</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp check_todo.sh ~/bin</code></pre></div>
-<h2 id="flycheckの設定">Flycheckの設定</h2>
+<p>スライド出力時にテンプレートを指定</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pandoc -s -t revealjs --template<span style="color:#f92672">=</span>template.html -o index.html index.md</code></pre></div>
+<p>Makefileで出力する例: <a href="https://github.com/igjit/slides/commit/ffbbb5bfbbf5b51fe101868837527b0698aa3d64">https://github.com/igjit/slides/commit/ffbbb5bfbbf5b51fe101868837527b0698aa3d64</a></p>
 
-<p>先程のshell scriptをFlycheckから呼び出せるようにします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(require <span style="color:#e6db74">&#39;flycheck</span>)
+<h2 id="デバッグ">デバッグ</h2>
 
-(flycheck-define-checker sh-todo-checker
-  <span style="color:#e6db74">&#34;Check TODO comment&#34;</span>
-  <span style="color:#e6db74">:command</span> (<span style="color:#e6db74">&#34;check_todo.sh&#34;</span> source)
-  <span style="color:#e6db74">:error-patterns</span>
-  ((warning line-start <span style="color:#e6db74">&#34;warning:&#34;</span> line <span style="color:#e6db74">&#34;:&#34;</span> (message) line-end))
-  <span style="color:#e6db74">:modes</span> sh-mode)
+<p>うまく表示されない場合は<a href="https://cards-dev.twitter.com/validator">Card validator</a>で確認します。</p>
 
-(add-to-list <span style="color:#e6db74">&#39;flycheck-checkers</span> <span style="color:#e6db74">&#39;sh-todo-checker</span>)</code></pre></div>
-<p><code>:error-patterns</code>でFlycheckのDSLを使ってエラーのフォーマットを指定しています。</p>
-
-<p>shell scriptを開いてFlycheckを有効にすれば警告が表示されるはずです。</p>
-
-<p><img src="/images/posts/2019/04/flycheck-in-shell/flycheck.png" alt="" /></p>
+<p><img src="/images/posts/2019/04/reveal-twiter-card/validator.png" alt="" /></p>
 
   </section>
   <footer>
@@ -155,12 +139,11 @@ cat $1 |
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://igjit.github.io/posts/2019/04/tokyor-77-typrr/">Newer</a>
+          <a href="https://igjit.github.io/posts/2019/04/flycheck-in-shell/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://igjit.github.io/posts/2019/04/reveal-twiter-card/">Older</a>
           
         </div>
       </div>
@@ -172,9 +155,9 @@ cat $1 |
   <ul id="slider" class="p-related__list">
     
     <li class="p-related__item js-related__item">
-      <a href="/posts/2019/02/emacs-conflr/"
+      <a href="/posts/2019/01/lt-in-5minutes/"
         >
-        <span>Emacsでconflrを使う</span>
+        <span>LTを5分で終わらせる技術</span>
       </a>
     </li>
     
