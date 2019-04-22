@@ -6,10 +6,19 @@
     <description>Recent content in Posts on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 20 Apr 2019 08:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 22 Apr 2019 08:19:00 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>「プログラミング言語の基礎概念」のために作ったEmacs拡張</title>
+      <link>https://igjit.github.io/posts/2019/04/emacs-lisp-for-copl/</link>
+      <pubDate>Mon, 22 Apr 2019 08:19:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2019/04/emacs-lisp-for-copl/</guid>
+      <description>「プログラミング言語の基礎概念」の演習問題を解くためのEmacs拡張を作ったので紹介します。 動機 出版社のページに 関数型言語MLの一種Obje</description>
+    </item>
     
     <item>
       <title>pandocで生成するreveal.jsスライドにTwiter Cardを追加する</title>
