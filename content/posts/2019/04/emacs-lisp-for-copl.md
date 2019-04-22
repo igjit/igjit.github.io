@@ -1,6 +1,7 @@
 ---
 title: "「プログラミング言語の基礎概念」のために作ったEmacs拡張"
 date: 2019-04-22T08:19:00+09:00
+thumbnail: /images/posts/2019/04/emacs-lisp-for-copl/flycheck.png
 tags: ["Emacs", "CoPL"]
 ---
 
