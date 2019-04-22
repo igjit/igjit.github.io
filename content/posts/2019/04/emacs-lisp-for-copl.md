@@ -1,7 +1,6 @@
 ---
 title: "「プログラミング言語の基礎概念」のために作ったEmacs拡張"
 date: 2019-04-22T08:19:00+09:00
-draft: true
 tags: ["Emacs", "CoPL"]
 ---
 
