@@ -15,4 +15,4 @@ publish: build
 	git commit -m "Rebuilding site `date --iso-8601=seconds`"
 	git subtree push -P $(PUBLIC_DIR) origin master
 
-.PHONY: server build publish
+.PHONY: server draft build publish
