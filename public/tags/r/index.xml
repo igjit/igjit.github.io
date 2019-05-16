@@ -6,10 +6,19 @@
     <description>Recent content in R on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 15 Apr 2019 20:00:53 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 16 May 2019 21:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>パイプ演算子自作入門のその後</title>
+      <link>https://igjit.github.io/posts/2019/05/fix-tiny-pipe/</link>
+      <pubDate>Thu, 16 May 2019 21:00:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2019/05/fix-tiny-pipe/</guid>
+      <description>以前のTokyo.Rでお話したパイプ演算子自作入門ですが、 %pipe3%のバグレポートを頂きました。Thanks atusy! あーほんとだ 右辺が関数名だ</description>
+    </item>
     
     <item>
       <title>Tokyo.R #77 でRの型検査を実装した話をした</title>
