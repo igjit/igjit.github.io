@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Tokyo.R #77 でRの型検査を実装した話をした</title>
-  <meta property="og:title" content="Tokyo.R #77 でRの型検査を実装した話をした" />
-  <meta name="twitter:title" content="Tokyo.R #77 でRの型検査を実装した話をした" />
+  <title>パイプ演算子自作入門のその後</title>
+  <meta property="og:title" content="パイプ演算子自作入門のその後" />
+  <meta name="twitter:title" content="パイプ演算子自作入門のその後" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content="igjit"/>
   <meta property="og:site_name" content="igjit status" />
-  <meta property="og:url" content="https://igjit.github.io/posts/2019/04/tokyor-77-typrr/" />
+  <meta property="og:url" content="https://igjit.github.io/posts/2019/05/fix-tiny-pipe/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -58,12 +58,12 @@
 
 <article class="p-article">
   <header>
-    <h1>Tokyo.R #77 でRの型検査を実装した話をした</h1>
+    <h1>パイプ演算子自作入門のその後</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2019-04-15T20:00:53&#43;09:00">
-          Apr 15, 2019
+        <time datetime="2019-05-16T21:00:00&#43;09:00">
+          May 16, 2019
         </time>
       </div>
       
@@ -73,40 +73,23 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    
-
-<p><a href="https://tokyor.connpass.com/event/125793/">Tokyo.R #77</a>のLTでRの型検査を実装した話をしてきました。</p>
+    <p><a href="https://atnd.org/events/93829">以前のTokyo.R</a>でお話した<a href="https://igjit.github.io/slides/2018/01/tiny_pipe/#/">パイプ演算子自作入門</a>ですが、</p>
 
 <div class="iframe-wrapper" style="padding-top:56.25%">
-<iframe src="https://igjit.github.io/slides/2019/04/typrr/#/">
+<iframe src="https://igjit.github.io/slides/2018/01/tiny_pipe/#/58">
 </iframe>
 </div>
 
-<p><a href="https://igjit.github.io/slides/2019/04/typrr/#/">https://igjit.github.io/slides/2019/04/typrr/#/</a></p>
+<p><code>%pipe3%</code>のバグレポートを頂きました。Thanks <a href="https://twitter.com/Atsushi776">atusy</a>!</p>
 
-<p><a href="http://www.fos.kuis.kyoto-u.ac.jp/~igarashi/CoPL/index.cgi">プログラミング言語の基礎概念</a>という本に出てくる型推論のアルゴリズムをRで実装して遊んでみた、という内容です。</p>
+<p><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">あーほんとだ<br>右辺が関数名だと動かないですね😇<br>ありがとうございます!</p>&mdash; igjit (@igjit) <a href="https://twitter.com/igjit/status/1128336965932204034?ref_src=twsrc%5Etfw">May 14, 2019</a></blockquote></p>
 
-<p>実装はこちら: <a href="https://github.com/igjit/typrr">https://github.com/igjit/typrr</a></p>
+<p>以下の<a href="https://twitter.com/Atsushi776">atusy</a>による最短のpipeのように、右辺の表現式がsymbolのケースを考慮する必要があります。</p>
 
-<h2 id="emacsで動かす">Emacsで動かす</h2>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">v2 thx <a href="https://twitter.com/igjit?ref_src=twsrc%5Etfw">@igjit</a> for bug report<br><br>`%&gt;%` = function(lhs, rhs) {<br> r = substitute(rhs)<br> . = lhs<br> if (is.symbol(r)) return(rhs(.))<br> a = as.list(r[-1])<br> .q = quote(.)<br> if (any(a == .q)) return(eval(r))<br> eval(<a href="https://t.co/GI0WkPxHkF">https://t.co/GI0WkPxHkF</a>(c(r[[1]], .q, a)))<br>}</p>&mdash; atusy (@Atsushi776) <a href="https://twitter.com/Atsushi776/status/1128427827454328832?ref_src=twsrc%5Etfw">May 14, 2019</a></blockquote>
 
-<p>当日の型検査のデモはEmacsで行いました。(RStudioで動くようにしようと思ったけど間に合わなかった)</p>
-
-<p>Emacsに<a href="https://ess.r-project.org/">ESS</a>と<a href="https://www.flycheck.org">Flycheck</a>がインストールされていれば、<a href="https://github.com/igjit/typrr/blob/master/inst/emacs/flycheck-typrr.el">これを</a>ロードすれば動くはずです。</p>
-
-<h2 id="rstudioで動かす">RStudioで動かす</h2>
-
-<p>後日RStudioで動くようにしました。(<code>rocker/tidyverse:3.5.3</code>で動作確認)</p>
-
-<p>Consoleで以下を実行してパッケージをインストール</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">devtools<span style="color:#f92672">::</span>install_github(<span style="color:#e6db74">&#34;igjit/typrr&#34;</span>)</code></pre></div>
-<p>Consoleで以下のように型検査したいファイルを指定して<a href="https://github.com/jimhester/lintr">lintr</a>実行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">lintr<span style="color:#f92672">::</span>lint(<span style="color:#e6db74">&#34;sample.R&#34;</span>, <span style="color:#66d9ef">list</span>(typrr_linter <span style="color:#f92672">=</span> typrr<span style="color:#f92672">::</span>typrr_linter()))</code></pre></div>
-<p>すると型エラーある場合はMarkers paneにエラーの箇所が表示されます。</p>
-
-<p><img src="/images/posts/2019/04/tokyor-77-typrr/rstudio.png" alt="" /></p>
-
-<p>スライドにあるように<a href="https://igjit.github.io/slides/2019/04/typrr/#/27">対応している構文が少なすぎる</a>ので実用性は無いですが、型推論の面白さの一端に触れてもらえると嬉しいです。</p>
+<p>tweetに収まるpipe実装、素敵ですね。</p>
 
   </section>
   <footer>
@@ -115,12 +98,11 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://igjit.github.io/posts/2019/02/emacs-conflr/">Newer</a>
+          <a href="https://igjit.github.io/posts/2019/04/emacs-lisp-for-copl/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://igjit.github.io/posts/2019/04/flycheck-in-shell/">Older</a>
           
         </div>
       </div>
@@ -130,6 +112,13 @@
 <section class="p-related">
   <h3>See Also</h3>
   <ul id="slider" class="p-related__list">
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2019/04/tokyor-77-typrr/"
+        >
+        <span>Tokyo.R #77 でRの型検査を実装した話をした</span>
+      </a>
+    </li>
     
     <li class="p-related__item js-related__item">
       <a href="/posts/2019/02/emacs-conflr/"
