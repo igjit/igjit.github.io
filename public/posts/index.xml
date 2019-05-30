@@ -6,10 +6,19 @@
     <description>Recent content in Posts on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 16 May 2019 21:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 31 May 2019 05:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>M-x shellで常に新しいshellを起動する</title>
+      <link>https://igjit.github.io/posts/2019/05/m-x-shell/</link>
+      <pubDate>Fri, 31 May 2019 05:00:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2019/05/m-x-shell/</guid>
+      <description>Emacsの中でshellを使う方法はいくつかありますが、私は古き良きshell-modeを使っています。 M-x shellすると、shell bu</description>
+    </item>
     
     <item>
       <title>パイプ演算子自作入門のその後</title>
