@@ -6,10 +6,19 @@
     <description>Recent content in Emacs on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 22 Apr 2019 08:19:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 31 May 2019 05:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>M-x shellで常に新しいshellを起動する</title>
+      <link>https://igjit.github.io/posts/2019/05/m-x-shell/</link>
+      <pubDate>Fri, 31 May 2019 05:00:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2019/05/m-x-shell/</guid>
+      <description>Emacsの中でshellを使う方法はいくつかありますが、私は古き良きshell-modeを使っています。 M-x shellすると、shell bu</description>
+    </item>
     
     <item>
       <title>「プログラミング言語の基礎概念」のために作ったEmacs拡張</title>
