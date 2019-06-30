@@ -6,10 +6,19 @@
     <description>Recent content in R on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 16 May 2019 21:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 30 Jun 2019 11:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tokyo.R #79 でRでRAW現像する話をした</title>
+      <link>https://igjit.github.io/posts/2019/06/tokyor-79-raw-processing-r/</link>
+      <pubDate>Sun, 30 Jun 2019 11:00:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2019/06/tokyor-79-raw-processing-r/</guid>
+      <description>Tokyo.R #79のLTでRでRAW現像する話をしてきました。 https://igjit.github.io/slides/2019/06/raw-processing-r/#/ Moiz氏の本: PythonとColabでできる - ゼロから作るRAW現像 私がRで挑戦中</description>
+    </item>
     
     <item>
       <title>パイプ演算子自作入門のその後</title>

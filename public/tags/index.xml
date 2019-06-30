@@ -6,10 +6,19 @@
     <description>Recent content in Tags on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 31 May 2019 05:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 30 Jun 2019 11:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>R</title>
+      <link>https://igjit.github.io/tags/r/</link>
+      <pubDate>Sun, 30 Jun 2019 11:00:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/tags/r/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Emacs</title>
@@ -26,15 +35,6 @@
       <pubDate>Fri, 31 May 2019 05:00:00 +0900</pubDate>
       
       <guid>https://igjit.github.io/tags/shell/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://igjit.github.io/tags/r/</link>
-      <pubDate>Thu, 16 May 2019 21:00:00 +0900</pubDate>
-      
-      <guid>https://igjit.github.io/tags/r/</guid>
       <description></description>
     </item>
     
