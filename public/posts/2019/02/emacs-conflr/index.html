@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.55.6" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://igjit.github.io/css/custom.css">
   <script type="text/javascript" src="https://igjit.github.io/js/bundle.js"></script>
@@ -110,9 +110,9 @@ Emacsに慣れているならESSは良いと思います。(RStudioの唯一の�
 <p>こんな感じの関数を定義して</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(defun ess-R-confl-post-current-buffer ()
   (interactive)
-  (let ((ess-dialect <span style="color:#e6db74">&#34;R&#34;</span>))
+  (<span style="color:#66d9ef">let</span> ((ess-dialect <span style="color:#e6db74">&#34;R&#34;</span>))
     (ess-eval-linewise
-     (format <span style="color:#e6db74">&#34;conflr::confl_create_post_from_Rmd(&#39;%s&#39;)&#34;</span>
+     (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;conflr::confl_create_post_from_Rmd(&#39;%s&#39;)&#34;</span>
              (buffer-file-name)))))</code></pre></div>
 <p>任意のR Markdownファイルを開いて <code>M-x ess-R-confl-post-current-buffer</code></p>
 
