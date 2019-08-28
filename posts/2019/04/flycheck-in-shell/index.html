@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.55.6" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://igjit.github.io/css/custom.css">
   <script type="text/javascript" src="https://igjit.github.io/js/bundle.js"></script>
@@ -132,13 +132,13 @@ cat $1 |
 <h2 id="flycheckの設定">Flycheckの設定</h2>
 
 <p>先程のshell scriptをFlycheckから呼び出せるようにします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(require <span style="color:#e6db74">&#39;flycheck</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;flycheck</span>)
 
 (flycheck-define-checker sh-todo-checker
   <span style="color:#e6db74">&#34;Check TODO comment&#34;</span>
   <span style="color:#e6db74">:command</span> (<span style="color:#e6db74">&#34;check_todo.sh&#34;</span> source)
   <span style="color:#e6db74">:error-patterns</span>
-  ((warning line-start <span style="color:#e6db74">&#34;warning:&#34;</span> line <span style="color:#e6db74">&#34;:&#34;</span> (message) line-end))
+  ((<span style="color:#66d9ef">warning</span> line-start <span style="color:#e6db74">&#34;warning:&#34;</span> line <span style="color:#e6db74">&#34;:&#34;</span> (message) line-end))
   <span style="color:#e6db74">:modes</span> sh-mode)
 
 (add-to-list <span style="color:#e6db74">&#39;flycheck-checkers</span> <span style="color:#e6db74">&#39;sh-todo-checker</span>)</code></pre></div>
