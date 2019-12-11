@@ -1,6 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://igjit.github.io/</loc>
+    <lastmod>2019-12-11T09:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/posts/</loc>
+    <lastmod>2019-12-11T09:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/tags/r/</loc>
+    <lastmod>2019-12-11T09:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/posts/2019/12/reference-in-r/</loc>
+    <lastmod>2019-12-11T09:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/tags/</loc>
+    <lastmod>2019-12-11T09:00:00+09:00</lastmod>
+  </url>
   
   <url>
     <loc>https://igjit.github.io/posts/2019/08/how-to-lose-5kg-in-6weeks/</loc>
@@ -10,26 +35,6 @@
   <url>
     <loc>https://igjit.github.io/tags/health/</loc>
     <lastmod>2019-08-28T09:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://igjit.github.io/</loc>
-    <lastmod>2019-08-28T09:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://igjit.github.io/posts/</loc>
-    <lastmod>2019-08-28T09:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://igjit.github.io/tags/</loc>
-    <lastmod>2019-08-28T09:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://igjit.github.io/tags/r/</loc>
-    <lastmod>2019-06-30T11:00:00+09:00</lastmod>
   </url>
   
   <url>

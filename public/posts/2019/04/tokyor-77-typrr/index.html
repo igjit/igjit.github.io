@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.60.1" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://igjit.github.io/css/custom.css">
   <script type="text/javascript" src="https://igjit.github.io/js/bundle.js"></script>
@@ -73,39 +73,22 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    
-
-<p><a href="https://tokyor.connpass.com/event/125793/">Tokyo.R #77</a>のLTでRの型検査を実装した話をしてきました。</p>
-
-<div class="iframe-wrapper" style="padding-top:56.25%">
-<iframe src="https://igjit.github.io/slides/2019/04/typrr/#/">
-</iframe>
-</div>
-
+    <p><a href="https://tokyor.connpass.com/event/125793/">Tokyo.R #77</a>のLTでRの型検査を実装した話をしてきました。</p>
+<!-- raw HTML omitted -->
 <p><a href="https://igjit.github.io/slides/2019/04/typrr/#/">https://igjit.github.io/slides/2019/04/typrr/#/</a></p>
-
 <p><a href="http://www.fos.kuis.kyoto-u.ac.jp/~igarashi/CoPL/index.cgi">プログラミング言語の基礎概念</a>という本に出てくる型推論のアルゴリズムをRで実装して遊んでみた、という内容です。</p>
-
 <p>実装はこちら: <a href="https://github.com/igjit/typrr">https://github.com/igjit/typrr</a></p>
-
-<h2 id="emacsで動かす">Emacsで動かす</h2>
-
+<h2 id="emacs">Emacsで動かす</h2>
 <p>当日の型検査のデモはEmacsで行いました。(RStudioで動くようにしようと思ったけど間に合わなかった)</p>
-
 <p>Emacsに<a href="https://ess.r-project.org/">ESS</a>と<a href="https://www.flycheck.org">Flycheck</a>がインストールされていれば、<a href="https://github.com/igjit/typrr/blob/master/inst/emacs/flycheck-typrr.el">これを</a>ロードすれば動くはずです。</p>
-
-<h2 id="rstudioで動かす">RStudioで動かす</h2>
-
+<h2 id="rstudio">RStudioで動かす</h2>
 <p>後日RStudioで動くようにしました。(<code>rocker/tidyverse:3.5.3</code>で動作確認)</p>
-
 <p>Consoleで以下を実行してパッケージをインストール</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">devtools<span style="color:#f92672">::</span>install_github(<span style="color:#e6db74">&#34;igjit/typrr&#34;</span>)</code></pre></div>
-<p>Consoleで以下のように型検査したいファイルを指定して<a href="https://github.com/jimhester/lintr">lintr</a>実行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">lintr<span style="color:#f92672">::</span>lint(<span style="color:#e6db74">&#34;sample.R&#34;</span>, <span style="color:#66d9ef">list</span>(typrr_linter <span style="color:#f92672">=</span> typrr<span style="color:#f92672">::</span>typrr_linter()))</code></pre></div>
-<p>すると型エラーある場合はMarkers paneにエラーの箇所が表示されます。</p>
-
-<p><img src="/images/posts/2019/04/tokyor-77-typrr/rstudio.png" alt="" /></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">igjit/typrr&#34;</span>)
+</code></pre></div><p>Consoleで以下のように型検査したいファイルを指定して<a href="https://github.com/jimhester/lintr">lintr</a>実行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">lintr<span style="color:#f92672">::</span><span style="color:#a6e22e">lint</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">sample.R&#34;</span>, <span style="color:#a6e22e">list</span>(typrr_linter <span style="color:#f92672">=</span> typrr<span style="color:#f92672">::</span><span style="color:#a6e22e">typrr_linter</span>()))
+</code></pre></div><p>すると型エラーある場合はMarkers paneにエラーの箇所が表示されます。</p>
+<p><img src="/images/posts/2019/04/tokyor-77-typrr/rstudio.png" alt=""></p>
 <p>スライドにあるように<a href="https://igjit.github.io/slides/2019/04/typrr/#/27">対応している構文が少なすぎる</a>ので実用性は無いですが、型推論の面白さの一端に触れてもらえると嬉しいです。</p>
 
   </section>
