@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.60.1" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://igjit.github.io/css/custom.css">
   <script type="text/javascript" src="https://igjit.github.io/js/bundle.js"></script>
@@ -75,52 +75,34 @@
   </header>
   
   <section id="js-article" class="p-article__body">
-    
-
-<p>先日、R MarkdownをConfluenceに投稿するためのRパッケージ、<a href="https://github.com/line/conflr">conflr</a>が公開されました。</p>
-
+    <p>先日、R MarkdownをConfluenceに投稿するためのRパッケージ、<a href="https://github.com/line/conflr">conflr</a>が公開されました。</p>
 <p><a href="https://engineering.linecorp.com/ja/blog/conflr-published/">conflr: R MarkdownをConfluenceに投稿するRパッケージ</a></p>
-
 <p>最高！こんなの欲しかった！これでコンフルに分析結果を投稿するときに手でコードをコピペしてプロットのpngを該当箇所にdrag &amp; dropし続けるという非生産的な作業から開放されますね！</p>
-
-<h2 id="rコンソールから使う">Rコンソールから使う</h2>
-
+<h2 id="r">Rコンソールから使う</h2>
 <p>前述の記事ではRStudioから使う方法が紹介されているんですが、もちろんRコンソールからも使うことができます。</p>
-
 <p><code>~/.Renviron</code>に必要な環境変数を書いておいて</p>
-
 <pre><code>CONFLUENCE_URL=https://confluence.example.com
 CONFLUENCE_USERNAME=your_name
 CONFLUENCE_PASSWORD=xxx
-</code></pre>
-
-<p>Rコンソールで実行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">conflr<span style="color:#f92672">::</span>confl_create_post_from_Rmd(<span style="color:#e6db74">&#34;path/to/file.Rmd&#34;</span>)</code></pre></div>
-<p>するとknitが実行されてブラウザでプレビュー画面が開きます。良さげだったらPublishボタンで投稿。</p>
-
-<h2 id="emacsから使う">Emacsから使う</h2>
-
+</code></pre><p>Rコンソールで実行</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">conflr<span style="color:#f92672">::</span><span style="color:#a6e22e">confl_create_post_from_Rmd</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">path/to/file.Rmd&#34;</span>)
+</code></pre></div><p>するとknitが実行されてブラウザでプレビュー画面が開きます。良さげだったらPublishボタンで投稿。</p>
+<h2 id="emacs">Emacsから使う</h2>
 <p>世の中のRユーザーの99%はRStudioを使ってると思うんですが、私は<a href="https://www.gnu.org/software/emacs/">Emacs</a> + <a href="https://ess.r-project.org/">ESS</a>でRを書いています。
 Emacsに慣れているならESSは良いと思います。(RStudioの唯一の競合はESSだ、って<a href="http://r-pkgs.had.co.nz/intro.html">Hadleyも言ってる！</a>)</p>
-
 <p>なのでEmacsから投稿できるようにします。</p>
-
 <p>前述の通り <code>~/.Renviron</code>に必要な環境変数を書いておきます。</p>
-
 <p>こんな感じの関数を定義して</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(defun ess-R-confl-post-current-buffer ()
   (interactive)
   (<span style="color:#66d9ef">let</span> ((ess-dialect <span style="color:#e6db74">&#34;R&#34;</span>))
     (ess-eval-linewise
      (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;conflr::confl_create_post_from_Rmd(&#39;%s&#39;)&#34;</span>
-             (buffer-file-name)))))</code></pre></div>
-<p>任意のR Markdownファイルを開いて <code>M-x ess-R-confl-post-current-buffer</code></p>
-
-<p><img src="/images/posts/2019/02/emacs-conflr/emacs.png" alt="" /></p>
-
+             (buffer-file-name)))))
+</code></pre></div><p>任意のR Markdownファイルを開いて <code>M-x ess-R-confl-post-current-buffer</code></p>
+<p><img src="/images/posts/2019/02/emacs-conflr/emacs.png" alt=""></p>
 <p>するとknitが実行されてブラウザでプレビュー画面が開きます。</p>
-
-<p><img src="/images/posts/2019/02/emacs-conflr/preview.png" alt="" /></p>
+<p><img src="/images/posts/2019/02/emacs-conflr/preview.png" alt=""></p>
 
   </section>
   <footer>

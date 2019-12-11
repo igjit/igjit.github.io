@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on igjit status</title>
@@ -6,10 +6,19 @@
     <description>Recent content in R on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 30 Jun 2019 11:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 11 Dec 2019 09:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rの参照オブジェクト</title>
+      <link>https://igjit.github.io/posts/2019/12/reference-in-r/</link>
+      <pubDate>Wed, 11 Dec 2019 09:00:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2019/12/reference-in-r/</guid>
+      <description>R Advent Calendar 2019の11日目の記事です。 Rのオブジェクトを関数に渡して変更したい場合はどうしましょう。 例えば渡されたxの要素nに1を足す関数を定</description>
+    </item>
     
     <item>
       <title>Tokyo.R #79 でRでRAW現像する話をした</title>
@@ -26,7 +35,7 @@
       <pubDate>Thu, 16 May 2019 21:00:00 +0900</pubDate>
       
       <guid>https://igjit.github.io/posts/2019/05/fix-tiny-pipe/</guid>
-      <description>以前のTokyo.Rでお話したパイプ演算子自作入門ですが、 %pipe3%のバグレポートを頂きました。Thanks atusy! あーほんとだ 右辺が関数名だ</description>
+      <description>以前のTokyo.Rでお話したパイプ演算子自作入門ですが、 %pipe3%のバグレポートを頂きました。Thanks atusy! 以下のatusyによる最短</description>
     </item>
     
     <item>
