@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Tokyo.R #77 でRの型検査を実装した話をした</title>
-  <meta property="og:title" content="Tokyo.R #77 でRの型検査を実装した話をした" />
-  <meta name="twitter:title" content="Tokyo.R #77 でRの型検査を実装した話をした" />
+  <title>Java VM 自作 方法</title>
+  <meta property="og:title" content="Java VM 自作 方法" />
+  <meta name="twitter:title" content="Java VM 自作 方法" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content="igjit"/>
   <meta property="og:site_name" content="igjit status" />
-  <meta property="og:url" content="https://igjit.github.io/posts/2019/04/tokyor-77-typrr/" />
+  <meta property="og:url" content="https://igjit.github.io/posts/2019/12/building-your-own-java-vm/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -59,41 +59,65 @@
 
 <article class="p-article">
   <header>
-    <h1>Tokyo.R #77 でRの型検査を実装した話をした</h1>
+    <h1>Java VM 自作 方法</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2019-04-15T20:00:53&#43;09:00">
-          Apr 15, 2019
+        <time datetime="2019-12-19T07:00:00&#43;09:00">
+          Dec 19, 2019
         </time>
       </div>
       
       <a href="https://igjit.github.io/tags/r" class="c-tag">R</a>
       
+      <a href="https://igjit.github.io/tags/java" class="c-tag">Java</a>
+      
     </div>
   </header>
   
   <section id="js-article" class="p-article__body">
-    <p><a href="https://tokyor.connpass.com/event/125793/">Tokyo.R #77</a>のLTでRの型検査を実装した話をしてきました。</p>
+    <p>Java VMを自作したのでその方法を書いておきます。</p>
+<h2 id="heading">作ったもの</h2>
+<p>RでJava VMを実装しました。<a href="https://github.com/igjit/jvmrr">igjit/jvmrr</a></p>
+<p>今のところ39個のJava VM命令を実装しており、Fizz Buzzが動きます。</p>
+<p><a href="https://japanr.connpass.com/event/154070/">Japan.R 2019</a>での発表資料</p>
 <div class="iframe-wrapper" style="padding-top:56.25%">
-<iframe src="https://igjit.github.io/slides/2019/04/typrr/#/">
-</iframe>
+<iframe src="https://igjit.github.io/slides/2019/12/jvmrr/#/"></iframe>
 </div>
-<p><a href="https://igjit.github.io/slides/2019/04/typrr/#/">https://igjit.github.io/slides/2019/04/typrr/#/</a></p>
-<p><a href="http://www.fos.kuis.kyoto-u.ac.jp/~igarashi/CoPL/index.cgi">プログラミング言語の基礎概念</a>という本に出てくる型推論のアルゴリズムをRで実装して遊んでみた、という内容です。</p>
-<p>実装はこちら: <a href="https://github.com/igjit/typrr">https://github.com/igjit/typrr</a></p>
-<h2 id="emacs">Emacsで動かす</h2>
-<p>当日の型検査のデモはEmacsで行いました。(RStudioで動くようにしようと思ったけど間に合わなかった)</p>
-<p>Emacsに<a href="https://ess.r-project.org/">ESS</a>と<a href="https://www.flycheck.org">Flycheck</a>がインストールされていれば、<a href="https://github.com/igjit/typrr/blob/master/inst/emacs/flycheck-typrr.el">これを</a>ロードすれば動くはずです。</p>
-<h2 id="rstudio">RStudioで動かす</h2>
-<p>後日RStudioで動くようにしました。(<code>rocker/tidyverse:3.5.3</code>で動作確認)</p>
-<p>Consoleで以下を実行してパッケージをインストール</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">igjit/typrr&#34;</span>)
-</code></pre></div><p>Consoleで以下のように型検査したいファイルを指定して<a href="https://github.com/jimhester/lintr">lintr</a>実行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">lintr<span style="color:#f92672">::</span><span style="color:#a6e22e">lint</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">sample.R&#34;</span>, <span style="color:#a6e22e">list</span>(typrr_linter <span style="color:#f92672">=</span> typrr<span style="color:#f92672">::</span><span style="color:#a6e22e">typrr_linter</span>()))
-</code></pre></div><p>すると型エラーある場合はMarkers paneにエラーの箇所が表示されます。</p>
-<p><img src="/images/posts/2019/04/tokyor-77-typrr/rstudio.png" alt=""></p>
-<p>スライドにあるように<a href="https://igjit.github.io/slides/2019/04/typrr/#/27">対応している構文が少なすぎる</a>ので実用性は無いですが、型推論の面白さの一端に触れてもらえると嬉しいです。</p>
+<p><a href="https://igjit.github.io/slides/2019/12/jvmrr/#/">https://igjit.github.io/slides/2019/12/jvmrr/#/</a></p>
+<h2 id="heading-1">方法</h2>
+<h3 id="1-">1. 実装言語を決める</h3>
+<blockquote>
+<p>To implement the Java Virtual Machine correctly, you need only be able to read the class file format and correctly perform the operations specified therein.</p>
+<p><a href="https://docs.oracle.com/javase/specs/jvms/se11/html/jvms-2.html">https://docs.oracle.com/javase/specs/jvms/se11/html/jvms-2.html</a></p>
+</blockquote>
+<p>クラスファイルを読めてその中の命令を実行できればJava VMを実装できるよ、とのことなので好きな言語で実装しましょう。</p>
+<p>クラスファイルはバイナリなのでバイナリを扱う方法を確認しておきます。
+Rの場合は<a href="https://stat.ethz.ch/R-manual/R-patched/library/base/html/readBin.html">readBin</a>でバイナリを読んで<a href="https://stat.ethz.ch/R-manual/R-patched/library/base/html/bitwise.html">bitw系の関数</a>でビット操作できます。</p>
+<h3 id="2-">2. 概要を把握する</h3>
+<p><a href="https://twitter.com/m3m0r7">めもりー</a>さんの資料がわかりやすいです。</p>
+<ul>
+<li><a href="https://speakerdeck.com/memory1994/phperkaigi-2019">PHP で JVM に入門する - 予備知識編 -</a></li>
+<li><a href="https://speakerdeck.com/memory1994/php-de-jvm-woshi-zhuang-site-hello-world-wochu-li-surumade">PHP で JVM を実装して Hello World を出力するまで</a></li>
+</ul>
+<h3 id="3-hello-world">3. Hello Worldを動かす</h3>
+<p><a href="https://docs.oracle.com/javase/specs/jvms/se11/html/index.html">Java VM仕様</a>を確認しつつ実装していきます。
+わかんないとこあっても<a href="https://speakerdeck.com/memory1994/php-de-jvm-woshi-zhuang-site-hello-world-wochu-li-surumade">PHP で JVM を実装して Hello World を出力するまで</a>を写経していけば多分なんとかなるはず。</p>
+<p>Hello Worldまでが一番大変だと思うけど、Hello Worldが動くとまさにHello Worldって感じなのでがんばってください。</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Rで書いたJava VMでhello world動いた。<br>今までやったhello worldの中で一番感動した。 <a href="https://t.co/9nU4p1gRKK">pic.twitter.com/9nU4p1gRKK</a></p>&mdash; igjit (@igjit) <a href="https://twitter.com/igjit/status/1186543937906806785?ref_src=twsrc%5Etfw">October 22, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<h3 id="4-vm">4. VM命令を増やす</h3>
+<p><a href="https://docs.oracle.com/javase/specs/jvms/se11/html/jvms-6.html#jvms-6.5">VM命令</a>を実装していくとできることが増えるので面白いです。私は</p>
+<ul>
+<li>四則演算</li>
+<li>forループ</li>
+<li>Fizz Buzz</li>
+</ul>
+<p>を順に実行できるようにしていきました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">javap -c FizzBuzz.class
+</code></pre></div><p>とかやると実行に必要なVM命令がわかります。</p>
+<h2 id="heading-2">なぜ</h2>
+<p>Japan.Rの懇親会でなんでそんなことしたのって聞かれたんですが、理由はRでできるか試してみたかったのと、ただ単純に言語処理系を作るのは面白いからです。</p>
+<p>Java VM作成は大変楽しい作業なのでみなさんも長期休暇に挑戦してみてください。Enjoy!</p>
 
   </section>
   <footer>
@@ -102,12 +126,11 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://igjit.github.io/posts/2019/04/flycheck-in-shell/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://igjit.github.io/posts/2019/02/emacs-conflr/">Older</a>
+          <a href="https://igjit.github.io/posts/2019/12/reference-in-r/">Older</a>
           
         </div>
       </div>
@@ -117,6 +140,34 @@
 <section class="p-related">
   <h3>See Also</h3>
   <ul id="slider" class="p-related__list">
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2019/12/reference-in-r/"
+        >
+        <span>Rの参照オブジェクト</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2019/06/tokyor-79-raw-processing-r/"
+        >
+        <span>Tokyo.R #79 でRでRAW現像する話をした</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2019/05/fix-tiny-pipe/"
+        >
+        <span>パイプ演算子自作入門のその後</span>
+      </a>
+    </li>
+    
+    <li class="p-related__item js-related__item">
+      <a href="/posts/2019/04/tokyor-77-typrr/"
+        >
+        <span>Tokyo.R #77 でRの型検査を実装した話をした</span>
+      </a>
+    </li>
     
     <li class="p-related__item js-related__item">
       <a href="/posts/2019/02/emacs-conflr/"
