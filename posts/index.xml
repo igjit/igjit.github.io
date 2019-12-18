@@ -6,10 +6,19 @@
     <description>Recent content in Posts on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 11 Dec 2019 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 19 Dec 2019 07:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java VM 自作 方法</title>
+      <link>https://igjit.github.io/posts/2019/12/building-your-own-java-vm/</link>
+      <pubDate>Thu, 19 Dec 2019 07:00:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2019/12/building-your-own-java-vm/</guid>
+      <description>Java VMを自作したのでその方法を書いておきます。 作ったもの RでJava VMを実装しました。igjit/jvmrr 今のところ39個のJava VM</description>
+    </item>
     
     <item>
       <title>Rの参照オブジェクト</title>
@@ -26,7 +35,7 @@
       <pubDate>Wed, 28 Aug 2019 09:00:00 +0900</pubDate>
       
       <guid>https://igjit.github.io/posts/2019/08/how-to-lose-5kg-in-6weeks/</guid>
-      <description>6週間で5kg減量できたので、何を考えてどうやったかを記録しておきます。 ちなみに、アスリートが筋肉を落とさず2kg減量させる食事【管理栄養士</description>
+      <description>6週間で5kg減量できた。やったのはカロリー制限と有酸素運動。糖質制限とか筋トレとかはやってない。ダンベル何キロ持てるかはわからない。 pic.twitter.com/mwkSVR2nCD &amp;mdash; igjit</description>
     </item>
     
     <item>
@@ -53,7 +62,7 @@
       <pubDate>Thu, 16 May 2019 21:00:00 +0900</pubDate>
       
       <guid>https://igjit.github.io/posts/2019/05/fix-tiny-pipe/</guid>
-      <description>以前のTokyo.Rでお話したパイプ演算子自作入門ですが、 %pipe3%のバグレポートを頂きました。Thanks atusy! 以下のatusyによる最短</description>
+      <description>以前のTokyo.Rでお話したパイプ演算子自作入門ですが、 %pipe3%のバグレポートを頂きました。Thanks atusy! あーほんとだ 右辺が関数名だ</description>
     </item>
     
     <item>
