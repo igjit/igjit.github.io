@@ -25,3 +25,6 @@ pygmentsCodeFences = true
     name = "Slides"
     url = "https://igjit.github.io/slides/"
     weight = 2
+
+[markup.goldmark.renderer]
+  unsafe = true
