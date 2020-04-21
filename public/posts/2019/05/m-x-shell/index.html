@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.61.0" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.69.0" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://igjit.github.io/css/custom.css">
   
@@ -82,7 +82,7 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-el" data-lang="el">(defalias <span style="color:#e6db74">&#39;my-shell-original</span> (<span style="color:#a6e22e">symbol-function</span> <span style="color:#e6db74">&#39;shell</span>))
 (defun shell ()
   (interactive)
-  (my-shell-original (<span style="color:#a6e22e">generate-new-buffer-name</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">*shell*</span><span style="color:#e6db74">&#34;</span>)))
+  (my-shell-original (<span style="color:#a6e22e">generate-new-buffer-name</span> <span style="color:#e6db74">&#34;*shell*&#34;</span>)))
 </code></pre></div>
   </section>
   <footer>
@@ -236,7 +236,7 @@
           
         
         &nbsp;&bull;&nbsp;
-        2019
+        2020
 
         
           &nbsp;&bull;&nbsp;
