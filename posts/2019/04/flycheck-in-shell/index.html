@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.61.0" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.69.0" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://igjit.github.io/css/custom.css">
   
@@ -83,7 +83,7 @@
 Flycheckの拡張は思ったより簡単にできたので、ここでやり方を紹介しておきます。</p>
 <p>基本的には<a href="https://www.flycheck.org/en/latest/developer/developing.html">Developer’s Guide</a>に必要なことは全て書いてあるので、わからないことがあったらこちらを参照すると良いかと思います。</p>
 <p>この記事では、より気軽に実践できるように、構文チェッカー本体をshell scriptで実装します。</p>
-<h2 id="shell-script">shell scriptでチェッカーを書く</h2>
+<h2 id="shell-scriptでチェッカーを書く">shell scriptでチェッカーを書く</h2>
 <p>例としてコード中の<code>TODO</code>コメントを警告するという(おせっかいな)チェッカーをshell scriptで実装してみましょう。</p>
 <p>こんなshell scriptをチェックの対象とします。(<code>bad.sh</code>)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
@@ -91,7 +91,7 @@ Flycheckの拡張は思ったより簡単にできたので、ここでやり方
 <span style="color:#75715e"># TODO: 引数チェック</span>
 name<span style="color:#f92672">=</span>$1
 
-echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Hello, </span><span style="color:#e6db74">${</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+echo <span style="color:#e6db74">&#34;Hello, </span><span style="color:#e6db74">${</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
 
 <span style="color:#75715e"># TODO: 気の利いたことを言う</span>
 echo <span style="color:#e6db74">&#39;Bye!&#39;</span>
@@ -118,7 +118,7 @@ cat $1 |
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(add-to-list <span style="color:#e6db74">&#39;exec-path</span> <span style="color:#e6db74">&#34;~/bin&#34;</span>)
 </code></pre></div><p>と設定してあったら</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp check_todo.sh ~/bin
-</code></pre></div><h2 id="flycheck">Flycheckの設定</h2>
+</code></pre></div><h2 id="flycheckの設定">Flycheckの設定</h2>
 <p>先程のshell scriptをFlycheckから呼び出せるようにします。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;flycheck</span>)
 
@@ -270,7 +270,7 @@ cat $1 |
           
         
         &nbsp;&bull;&nbsp;
-        2019
+        2020
 
         
           &nbsp;&bull;&nbsp;

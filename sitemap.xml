@@ -4,7 +4,17 @@
   
   <url>
     <loc>https://igjit.github.io/</loc>
-    <lastmod>2019-12-19T07:00:00+09:00</lastmod>
+    <lastmod>2020-04-21T08:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/posts/</loc>
+    <lastmod>2020-04-21T08:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://igjit.github.io/posts/2020/04/write-code-every-day/</loc>
+    <lastmod>2020-04-21T08:00:00+09:00</lastmod>
   </url>
   
   <url>
@@ -14,11 +24,6 @@
   
   <url>
     <loc>https://igjit.github.io/posts/2019/12/building-your-own-java-vm/</loc>
-    <lastmod>2019-12-19T07:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://igjit.github.io/posts/</loc>
     <lastmod>2019-12-19T07:00:00+09:00</lastmod>
   </url>
   

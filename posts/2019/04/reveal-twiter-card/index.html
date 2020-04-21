@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.61.0" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.69.0" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://igjit.github.io/css/custom.css">
   
@@ -80,7 +80,7 @@
 <p><a href="https://igjit.github.io/slides/2018/12/nrc/#/">スライドのURL</a>がこんな感じに表示されるようになります。</p>
 <p><img src="/images/posts/2019/04/reveal-twiter-card/card.png" alt=""></p>
 <p>2つの方法を試しました。</p>
-<h2 id="1-">1. スライドごとにタグを追加する</h2>
+<h2 id="1-スライドごとにタグを追加する">1. スライドごとにタグを追加する</h2>
 <p>pandocの<a href="https://github.com/jgm/pandoc/blob/fb1f76ddee89114a0cd1be2b2ec0c3abbad80dca/data/templates/default.revealjs#L56">reveal.jsテンプレート</a>に<code>header-includes</code>という変数が用意されています。</p>
 <p>なのでこんな感じでスライドのYAMLメタデータブロックに書けば<code>head</code>内にタグが追加されます。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
@@ -91,7 +91,7 @@ header-includes:
 ---
 
 スライドの内容...
-</code></pre></div><h2 id="2-">2. テンプレートをカスタマイズする</h2>
+</code></pre></div><h2 id="2-テンプレートをカスタマイズする">2. テンプレートをカスタマイズする</h2>
 <p>上記の方法は手軽ですが、スライドを作るたびに同じ内容を書かなければならなくて面倒です。
 その場合はpandocのテンプレートをカスタマイズします。</p>
 <p>デフォルトのテンプレートをファイルに吐く</p>
@@ -115,7 +115,7 @@ title: |
 <p>スライド出力時にテンプレートを指定</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pandoc -s -t revealjs --template<span style="color:#f92672">=</span>template.html -o index.html index.md
 </code></pre></div><p>Makefileで出力する例: <a href="https://github.com/igjit/slides/commit/ffbbb5bfbbf5b51fe101868837527b0698aa3d64">https://github.com/igjit/slides/commit/ffbbb5bfbbf5b51fe101868837527b0698aa3d64</a></p>
-<h2 id="heading">デバッグ</h2>
+<h2 id="デバッグ">デバッグ</h2>
 <p>うまく表示されない場合は<a href="https://cards-dev.twitter.com/validator">Card validator</a>で確認します。</p>
 <p><img src="/images/posts/2019/04/reveal-twiter-card/validator.png" alt=""></p>
 
@@ -255,7 +255,7 @@ title: |
           
         
         &nbsp;&bull;&nbsp;
-        2019
+        2020
 
         
           &nbsp;&bull;&nbsp;
