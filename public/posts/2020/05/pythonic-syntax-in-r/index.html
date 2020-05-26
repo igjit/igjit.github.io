@@ -90,6 +90,10 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">con <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">file</span>(<span style="color:#e6db74">&#34;example.txt&#34;</span>)
 <span style="color:#a6e22e">on.exit</span>(<span style="color:#a6e22e">close</span>(con))
 </code></pre></div><p>みたいにしておくと閉じ忘れを防げます。</p>
+<p>(追記)</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">with文的なものはwithrが便利 <a href="https://t.co/rA3Xs96dKq">https://t.co/rA3Xs96dKq</a></p>&mdash; Hiroaki Yutani (@yutannihilation) <a href="https://twitter.com/yutannihilation/status/1265084702915915776?ref_src=twsrc%5Etfw">May 26, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p><a href="http://withr.r-lib.org/reference/with_connection.html">withr::with_connection</a>
+を使えば自動でコネクション閉じてくれますね。Thanks <a href="https://twitter.com/yutannihilation">@yutannihilation</a>!</p>
 <h2 id="空のシーケンスやコレクションが真理値の偽になる">空のシーケンスやコレクションが真理値の偽になる</h2>
 <p>これはそのとおりで、Rでは<code>if</code>, <code>while</code>の条件に入れられるのは</p>
 <blockquote>
@@ -128,6 +132,12 @@
 I love you 
 I love you 
 I love you 
+</code></pre></div><p>(追記)</p>
+<p><code>walk</code> 無しでもできました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">replicate</span>(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;I love you&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">cat</span>(sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;\n&#34;</span>)
+I love you
+I love you
+I love you
 </code></pre></div>
   </section>
   <footer>
