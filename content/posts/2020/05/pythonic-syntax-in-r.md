@@ -32,6 +32,13 @@ on.exit(close(con))
 
 みたいにしておくと閉じ忘れを防げます。
 
+(追記)
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">with文的なものはwithrが便利 <a href="https://t.co/rA3Xs96dKq">https://t.co/rA3Xs96dKq</a></p>&mdash; Hiroaki Yutani (@yutannihilation) <a href="https://twitter.com/yutannihilation/status/1265084702915915776?ref_src=twsrc%5Etfw">May 26, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+[withr::with_connection](http://withr.r-lib.org/reference/with_connection.html)
+を使えば自動でコネクション閉じてくれますね。Thanks [@yutannihilation](https://twitter.com/yutannihilation)!
+
 ## 空のシーケンスやコレクションが真理値の偽になる
 
 これはそのとおりで、Rでは`if`, `while`の条件に入れられるのは
@@ -89,4 +96,15 @@ Rのfor文で回せるのは
 I love you 
 I love you 
 I love you 
+```
+
+(追記)
+
+`walk` 無しでもできました。
+
+```r
+> replicate(3, "I love you") %>% cat(sep = "\n")
+I love you
+I love you
+I love you
 ```
