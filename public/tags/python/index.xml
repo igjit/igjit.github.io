@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on igjit status</title>
+    <link>https://igjit.github.io/tags/python/</link>
+    <description>Recent content in Python on igjit status</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 26 May 2020 09:30:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://igjit.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PythonのあれはRでこう書ける</title>
+      <link>https://igjit.github.io/posts/2020/05/pythonic-syntax-in-r/</link>
+      <pubDate>Tue, 26 May 2020 09:30:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2020/05/pythonic-syntax-in-r/</guid>
+      <description>RにはないPythonの文法・テクニック (演算子/for文/条件分岐 編)という記事を読みました。一部の内容はRでも実現できそうなので書いてお</description>
+    </item>
+    
+  </channel>
+</rss>
