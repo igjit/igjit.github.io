@@ -6,10 +6,19 @@
     <description>Recent content on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 21 Apr 2020 08:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2020 09:30:00 +0900</lastBuildDate>
     
 	<atom:link href="https://igjit.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PythonのあれはRでこう書ける</title>
+      <link>https://igjit.github.io/posts/2020/05/pythonic-syntax-in-r/</link>
+      <pubDate>Tue, 26 May 2020 09:30:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2020/05/pythonic-syntax-in-r/</guid>
+      <description>RにはないPythonの文法・テクニック (演算子/for文/条件分岐 編)という記事を読みました。一部の内容はRでも実現できそうなので書いてお</description>
+    </item>
     
     <item>
       <title>Write Code Every Dayを1年続けた</title>
