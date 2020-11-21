@@ -6,11 +6,7 @@
     <description>Recent content in Flycheck on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 19 Apr 2019 08:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://igjit.github.io/tags/flycheck/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 19 Apr 2019 08:00:00 +0900</lastBuildDate><atom:link href="https://igjit.github.io/tags/flycheck/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>できる Flycheck拡張 (shell scriptでチェッカーを実装する)</title>
       <link>https://igjit.github.io/posts/2019/04/flycheck-in-shell/</link>

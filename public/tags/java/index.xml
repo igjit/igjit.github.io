@@ -6,11 +6,7 @@
     <description>Recent content in Java on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 19 Dec 2019 07:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://igjit.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 19 Dec 2019 07:00:00 +0900</lastBuildDate><atom:link href="https://igjit.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java VM 自作 方法</title>
       <link>https://igjit.github.io/posts/2019/12/building-your-own-java-vm/</link>

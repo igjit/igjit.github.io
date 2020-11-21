@@ -6,10 +6,15 @@
     <description>Recent content on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 26 May 2020 09:30:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://igjit.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 22 Nov 2020 00:00:00 +0900</lastBuildDate><atom:link href="https://igjit.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SuuntoのGPSウォッチのデータをYAMAPにインポートする</title>
+      <link>https://igjit.github.io/posts/2020/11/suunto-yamap/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2020/11/suunto-yamap/</guid>
+      <description>私は山の行動記録にSuuntoのGPSウォッチを使っています。 このデータをYAMAPで共有できると便利なので方法を紹介します。 スマートフォン</description>
+    </item>
     
     <item>
       <title>PythonのあれはRでこう書ける</title>
