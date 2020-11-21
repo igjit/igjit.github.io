@@ -6,11 +6,7 @@
     <description>Recent content in CoPL on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 22 Apr 2019 08:19:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://igjit.github.io/tags/copl/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 22 Apr 2019 08:19:00 +0900</lastBuildDate><atom:link href="https://igjit.github.io/tags/copl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>「プログラミング言語の基礎概念」のために作ったEmacs拡張</title>
       <link>https://igjit.github.io/posts/2019/04/emacs-lisp-for-copl/</link>
