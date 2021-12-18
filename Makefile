@@ -1,6 +1,14 @@
 PUBLIC_DIR = public
 HUGO_THEME = hugo_theme_pickles
 
+RMDS = $(wildcard content/posts/*/*/*.Rmd)
+MDS = $(patsubst %.Rmd,%.md,$(RMDS))
+
+mds: $(MDS)
+
+%.md: %.Rmd
+	docker-compose run --rm -u $(shell id -u $(USER)) rmd R -e 'rmarkdown::render("$^")'
+
 server:
 	hugo server -D -t $(HUGO_THEME)
 
