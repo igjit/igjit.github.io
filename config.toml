@@ -4,6 +4,7 @@ hasCJKLanguage = true
 title = "igjit status"
 theme = "hugo_theme_pickles"
 pygmentsCodeFences = true
+ignoreFiles = ['\.Rmd$', '_files$', '_cache$', '\.knit\.md$', '\.utf8\.md$']
 
 [params]
   twitter = "igjit"
