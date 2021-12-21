@@ -6,7 +6,16 @@
     <description>Recent content on igjit status</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sun, 22 Nov 2020 00:00:00 +0900</lastBuildDate><atom:link href="https://igjit.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Dec 2021 00:00:00 +0900</lastBuildDate><atom:link href="https://igjit.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>&lt;&lt;-とクロージャ</title>
+      <link>https://igjit.github.io/posts/2021/12/r-assign-op-and-closure/</link>
+      <pubDate>Tue, 21 Dec 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://igjit.github.io/posts/2021/12/r-assign-op-and-closure/</guid>
+      <description>R Advent Calendar 2021の21日目の記事です。 演算子&amp;lt;&amp;lt;-はグローバル環境に代入する、という説明を見かけることがあります。 例えばRの基礎と</description>
+    </item>
+    
     <item>
       <title>SuuntoのGPSウォッチのデータをYAMAPにインポートする</title>
       <link>https://igjit.github.io/posts/2020/11/suunto-yamap/</link>

@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.78.2" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.91.0" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://igjit.github.io/css/custom.css">
   
@@ -88,9 +88,9 @@
 <h2 id="rstudioで動かす">RStudioで動かす</h2>
 <p>後日RStudioで動くようにしました。(<code>rocker/tidyverse:3.5.3</code>で動作確認)</p>
 <p>Consoleで以下を実行してパッケージをインストール</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;igjit/typrr&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">devtools<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;igjit/typrr&#34;</span>)
 </code></pre></div><p>Consoleで以下のように型検査したいファイルを指定して<a href="https://github.com/jimhester/lintr">lintr</a>実行</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">lintr<span style="color:#f92672">::</span><span style="color:#a6e22e">lint</span>(<span style="color:#e6db74">&#34;sample.R&#34;</span>, <span style="color:#a6e22e">list</span>(typrr_linter <span style="color:#f92672">=</span> typrr<span style="color:#f92672">::</span><span style="color:#a6e22e">typrr_linter</span>()))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">lintr<span style="color:#f92672">::</span><span style="color:#a6e22e">lint</span>(<span style="color:#e6db74">&#34;sample.R&#34;</span>, <span style="color:#a6e22e">list</span>(typrr_linter <span style="color:#f92672">=</span> typrr<span style="color:#f92672">::</span><span style="color:#a6e22e">typrr_linter</span>()))
 </code></pre></div><p>すると型エラーある場合はMarkers paneにエラーの箇所が表示されます。</p>
 <p><img src="/images/posts/2019/04/tokyor-77-typrr/rstudio.png" alt=""></p>
 <p>スライドにあるように<a href="https://igjit.github.io/slides/2019/04/typrr/#/27">対応している構文が少なすぎる</a>ので実用性は無いですが、型推論の面白さの一端に触れてもらえると嬉しいです。</p>
@@ -238,7 +238,7 @@
           
         
         &nbsp;&bull;&nbsp;
-        2020
+        2021
 
         
           &nbsp;&bull;&nbsp;

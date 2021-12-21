@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.78.2" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.91.0" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://igjit.github.io/css/custom.css">
   
@@ -83,7 +83,7 @@
 <h2 id="1-スライドごとにタグを追加する">1. スライドごとにタグを追加する</h2>
 <p>pandocの<a href="https://github.com/jgm/pandoc/blob/fb1f76ddee89114a0cd1be2b2ec0c3abbad80dca/data/templates/default.revealjs#L56">reveal.jsテンプレート</a>に<code>header-includes</code>という変数が用意されています。</p>
 <p>なのでこんな感じでスライドのYAMLメタデータブロックに書けば<code>head</code>内にタグが追加されます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
 header-includes:
     <span style="color:#66d9ef">-</span> &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:card&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;summary&#34;</span> /&gt;
     <span style="color:#66d9ef">-</span> &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:title&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;サンプルスライド&#34;</span> /&gt;
@@ -95,15 +95,15 @@ header-includes:
 <p>上記の方法は手軽ですが、スライドを作るたびに同じ内容を書かなければならなくて面倒です。
 その場合はpandocのテンプレートをカスタマイズします。</p>
 <p>デフォルトのテンプレートをファイルに吐く</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pandoc --print-default-template revealjs &gt; template.html
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pandoc --print-default-template revealjs &gt; template.html
 </code></pre></div><p>テンプレートにmetaタグを追記</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:card&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;summary&#34;</span> /&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:card&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;summary&#34;</span> /&gt;
   &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:title&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$pagetitle$&#34;</span> /&gt;
 $if(meta-image)$
   &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter:image&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;$meta-image$&#34;</span> /&gt;
 $endif$
 </code></pre></div><p>スライドのYAMLメタデータブロック</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
 pagetitle: サンプルスライド
 title: |
     サンプル \
@@ -113,7 +113,7 @@ title: |
 スライドの内容...
 </code></pre></div><p><code>pagetitle</code> は<code>&lt;title&gt;</code>と<code>twitter:card</code>属性、<code>title</code>はスライドのタイトルになります。(ややこしい)</p>
 <p>スライド出力時にテンプレートを指定</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pandoc -s -t revealjs --template<span style="color:#f92672">=</span>template.html -o index.html index.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">pandoc -s -t revealjs --template<span style="color:#f92672">=</span>template.html -o index.html index.md
 </code></pre></div><p>Makefileで出力する例: <a href="https://github.com/igjit/slides/commit/ffbbb5bfbbf5b51fe101868837527b0698aa3d64">https://github.com/igjit/slides/commit/ffbbb5bfbbf5b51fe101868837527b0698aa3d64</a></p>
 <h2 id="デバッグ">デバッグ</h2>
 <p>うまく表示されない場合は<a href="https://cards-dev.twitter.com/validator">Card validator</a>で確認します。</p>
@@ -255,7 +255,7 @@ title: |
           
         
         &nbsp;&bull;&nbsp;
-        2020
+        2021
 
         
           &nbsp;&bull;&nbsp;

@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.78.2" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.91.0" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://igjit.github.io/css/custom.css">
   
@@ -86,7 +86,7 @@ Flycheckの拡張は思ったより簡単にできたので、ここでやり方
 <h2 id="shell-scriptでチェッカーを書く">shell scriptでチェッカーを書く</h2>
 <p>例としてコード中の<code>TODO</code>コメントを警告するという(おせっかいな)チェッカーをshell scriptで実装してみましょう。</p>
 <p>こんなshell scriptをチェックの対象とします。(<code>bad.sh</code>)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e"># TODO: 引数チェック</span>
 name<span style="color:#f92672">=</span>$1
@@ -96,31 +96,31 @@ echo <span style="color:#e6db74">&#34;Hello, </span><span style="color:#e6db74">
 <span style="color:#75715e"># TODO: 気の利いたことを言う</span>
 echo <span style="color:#e6db74">&#39;Bye!&#39;</span>
 </code></pre></div><p>試しにgrepで問題のある行を抽出してみます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat bad.sh | grep -n TODO
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat bad.sh | grep -n TODO
 3:# TODO: 引数チェック
 8:# TODO: 気の利いたことを言う
 </code></pre></div><p>エラーメッセージっぽく整形。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat bad.sh | grep -n TODO | awk -F: <span style="color:#e6db74">&#39;{print &#34;warning:&#34;$1&#34;:TODO comments should be removed.&#34;}&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat bad.sh | grep -n TODO | awk -F: <span style="color:#e6db74">&#39;{print &#34;warning:&#34;$1&#34;:TODO comments should be removed.&#34;}&#39;</span>
 warning:3:TODO comments should be removed.
 warning:8:TODO comments should be removed.
 </code></pre></div><p>エラーのフォーマットは</p>
-<pre><code>エラーの種類:行:エラーメッセージ
+<pre tabindex="0"><code>エラーの種類:行:エラーメッセージ
 </code></pre><p>としました。</p>
 <p>良さそうなら以下のようなshell scriptとして保存しておきます。(<code>check_todo.sh</code>)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
 </span><span style="color:#75715e"></span>
 cat $1 |
     grep -n TODO |
     awk -F: <span style="color:#e6db74">&#39;{print &#34;warning:&#34;$1&#34;:TODO comments should be removed.&#34;}&#39;</span>
 </code></pre></div><p>実行権限を付与</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">chmod +x check_todo.sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">chmod +x check_todo.sh
 </code></pre></div><p>Emacsの<code>exec-path</code>の通った所に置いておきます。例えば</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(add-to-list <span style="color:#e6db74">&#39;exec-path</span> <span style="color:#e6db74">&#34;~/bin&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(add-to-list <span style="color:#e6db74">&#39;exec-path</span> <span style="color:#e6db74">&#34;~/bin&#34;</span>)
 </code></pre></div><p>と設定してあったら</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp check_todo.sh ~/bin
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp check_todo.sh ~/bin
 </code></pre></div><h2 id="flycheckの設定">Flycheckの設定</h2>
 <p>先程のshell scriptをFlycheckから呼び出せるようにします。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;flycheck</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lisp" data-lang="lisp">(<span style="color:#a6e22e">require</span> <span style="color:#e6db74">&#39;flycheck</span>)
 
 (flycheck-define-checker sh-todo-checker
   <span style="color:#e6db74">&#34;Check TODO comment&#34;</span>
@@ -270,7 +270,7 @@ cat $1 |
           
         
         &nbsp;&bull;&nbsp;
-        2020
+        2021
 
         
           &nbsp;&bull;&nbsp;

@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.78.2" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.91.0" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://igjit.github.io/css/custom.css">
   
@@ -79,7 +79,7 @@
     <p>Emacsの中でshellを使う方法はいくつかありますが、私は古き良き<a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Shell-Mode.html">shell-mode</a>を使っています。</p>
 <p><code>M-x shell</code>すると、shell bufferが存在しない場合は新たにshellを起動、存在する(かつshell processが起動している)場合は既存のshell bufferを開きます。</p>
 <p>追加でshellを起動したい場合は <code>C-u M-x shell</code>してからbuffer名を指定する必要があり、面倒だったので<code>M-x shell</code>で常に新しいshellを起動するようにしました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-el" data-lang="el">(defalias <span style="color:#e6db74">&#39;my-shell-original</span> (<span style="color:#a6e22e">symbol-function</span> <span style="color:#e6db74">&#39;shell</span>))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-el" data-lang="el">(defalias <span style="color:#e6db74">&#39;my-shell-original</span> (<span style="color:#a6e22e">symbol-function</span> <span style="color:#e6db74">&#39;shell</span>))
 (defun shell ()
   (interactive)
   (my-shell-original (<span style="color:#a6e22e">generate-new-buffer-name</span> <span style="color:#e6db74">&#34;*shell*&#34;</span>)))
@@ -236,7 +236,7 @@
           
         
         &nbsp;&bull;&nbsp;
-        2020
+        2021
 
         
           &nbsp;&bull;&nbsp;

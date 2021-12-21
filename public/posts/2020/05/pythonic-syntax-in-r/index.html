@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.78.2" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.91.0" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://igjit.github.io/css/custom.css">
   
@@ -80,14 +80,14 @@
 <h2 id="セイウチ演算子--walrus-operator">セイウチ演算子 := (walrus operator)</h2>
 <p>セイウチ演算子はPython 3.8で導入された<a href="https://docs.python.org/ja/3/whatsnew/3.8.html#assignment-expressions">代入式</a>と呼ばれる構文とのことですが、Rではもともと代入は式であり、値を返します。
 なので式の一部として普通に代入演算子(<code>&lt;-</code>)を使うことができます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&gt;</span> b <span style="color:#f92672">&lt;-</span> (a <span style="color:#f92672">&lt;-</span> <span style="color:#ae81ff">10</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&gt;</span> b <span style="color:#f92672">&lt;-</span> (a <span style="color:#f92672">&lt;-</span> <span style="color:#ae81ff">10</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
 <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">c</span>(a, b)
 [1] <span style="color:#ae81ff">10</span>  <span style="color:#ae81ff">5</span>
 </code></pre></div><h2 id="withステートメント-with文">withステートメント (with文)</h2>
 <p>後片付けのための特殊な構文は私の知る限りRにはなさそうです。</p>
 <p>例に挙がっているファイルの読み書きは、たいていは<a href="https://readr.tidyverse.org/">readr</a>をはじめとするライブラリを使えば良いので、プログラマーが直接ファイルコネクションを操作する機会はあまりないかもしれません。</p>
 <p>ちなみに自分でファイルコネクションを扱うときは</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">con <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">file</span>(<span style="color:#e6db74">&#34;example.txt&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">con <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">file</span>(<span style="color:#e6db74">&#34;example.txt&#34;</span>)
 <span style="color:#a6e22e">on.exit</span>(<span style="color:#a6e22e">close</span>(con))
 </code></pre></div><p>みたいにしておくと閉じ忘れを防げます。</p>
 <p>(追記)</p>
@@ -110,7 +110,7 @@
 <p>とのこと。確かに文字列を1文字づつはできないですね。</p>
 <h2 id="for文のenumerate">for文のenumerate</h2>
 <p>これは<a href="https://purrr.tidyverse.org/reference/imap.html">purrr::imap</a>を使うとできます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">library</span>(purrr)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">library</span>(purrr)
 <span style="color:#f92672">&gt;</span> fruit <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;apple&#34;</span>, <span style="color:#e6db74">&#34;orange&#34;</span>, <span style="color:#e6db74">&#34;lemon&#34;</span>)
 <span style="color:#f92672">&gt;</span> fruit <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">imap</span>(<span style="color:#f92672">~</span> <span style="color:#a6e22e">paste</span>(.y, .x))
 [[1]]
@@ -124,17 +124,17 @@
 </code></pre></div><p>値を返すほうが好みなので<code>imap</code>を使いましたが、表示など副作用のみが欲しい場合は<code>iwalk</code>を使うと良いです。</p>
 <h2 id="変数を利用しないfor文">変数を利用しないfor文</h2>
 <p>何かを繰り返すときは私はこんな感じで書きます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">replicate</span>(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;I love you&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">replicate</span>(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;I love you&#34;</span>)
 [1] <span style="color:#e6db74">&#34;I love you&#34;</span> <span style="color:#e6db74">&#34;I love you&#34;</span> <span style="color:#e6db74">&#34;I love you&#34;</span>
 </code></pre></div><p>表示が目的だったら</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">library</span>(purrr)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">library</span>(purrr)
 <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">replicate</span>(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;I love you&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">walk</span>(<span style="color:#f92672">~</span> <span style="color:#a6e22e">cat</span>(., <span style="color:#e6db74">&#34;\n&#34;</span>))
 I love you 
 I love you 
 I love you 
 </code></pre></div><p>(追記)</p>
 <p><code>walk</code> 無しでもできました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">replicate</span>(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;I love you&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">cat</span>(sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;\n&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">replicate</span>(<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;I love you&#34;</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">cat</span>(sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;\n&#34;</span>)
 I love you
 I love you
 I love you
@@ -310,7 +310,7 @@ I love you
           
         
         &nbsp;&bull;&nbsp;
-        2020
+        2021
 
         
           &nbsp;&bull;&nbsp;

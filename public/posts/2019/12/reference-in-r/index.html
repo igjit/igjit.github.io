@@ -32,7 +32,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.78.2" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.91.0" /><link rel="stylesheet" href="https://igjit.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://igjit.github.io/css/custom.css">
   
@@ -77,37 +77,37 @@
     <p><a href="https://qiita.com/advent-calendar/2019/rlang">R Advent Calendar 2019</a>の11日目の記事です。</p>
 <p>Rのオブジェクトを関数に渡して変更したい場合はどうしましょう。</p>
 <p>例えば渡された<code>x</code>の要素<code>n</code>に1を足す関数を定義して</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">increase <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(x) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">increase <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(x) {
   x<span style="color:#f92672">$</span>n <span style="color:#f92672">&lt;-</span> x<span style="color:#f92672">$</span>n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
 }
 </code></pre></div><p>listを渡して呼び出した場合</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">l <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">l <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">list</span>()
 l<span style="color:#f92672">$</span>n <span style="color:#f92672">&lt;-</span> <span style="color:#ae81ff">10</span>
 <span style="color:#a6e22e">increase</span>(l)
 l<span style="color:#f92672">$</span>n
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## [1] 10</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## [1] 10</span>
 </code></pre></div><p>listの中身は変わりません。</p>
 <p>Rは関数型プログラミングを推奨する言語であり、関数は引数を直接変更しないようになっているためです。</p>
 <p>こういうときは参照オブジェクトを使います。例えばRの環境は参照オブジェクトです。</p>
 <p>新しい環境を生成</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">e <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">new.env</span>(parent <span style="color:#f92672">=</span> <span style="color:#a6e22e">emptyenv</span>())
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">e <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">new.env</span>(parent <span style="color:#f92672">=</span> <span style="color:#a6e22e">emptyenv</span>())
 </code></pre></div><p>環境に値をセットして<code>increase</code>に渡すと</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">e<span style="color:#f92672">$</span>n <span style="color:#f92672">&lt;-</span> <span style="color:#ae81ff">10</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">e<span style="color:#f92672">$</span>n <span style="color:#f92672">&lt;-</span> <span style="color:#ae81ff">10</span>
 <span style="color:#a6e22e">increase</span>(e)
 e<span style="color:#f92672">$</span>n
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## [1] 11</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## [1] 11</span>
 </code></pre></div><p>値が変更されました。</p>
 <p>環境のほかに、参照クラスのオブジェクトも参照オブジェクトです。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">Counter <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">setRefClass</span>(<span style="color:#e6db74">&#34;Counter&#34;</span>, fields <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;n&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">Counter <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">setRefClass</span>(<span style="color:#e6db74">&#34;Counter&#34;</span>, fields <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;n&#34;</span>)
 
 cnt <span style="color:#f92672">&lt;-</span> Counter<span style="color:#f92672">$</span><span style="color:#a6e22e">new</span>()
 cnt<span style="color:#f92672">$</span>n <span style="color:#f92672">&lt;-</span> <span style="color:#ae81ff">10</span>
 <span style="color:#a6e22e">increase</span>(cnt)
 cnt<span style="color:#f92672">$</span>n
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## [1] 11</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## [1] 11</span>
 </code></pre></div><p>値が変更されました。</p>
 <p>ただしオブジェクトのフィールドを外部から直接操作するのはカプセル化OOPの流儀から外れています。値を増やす操作はクラスのメソッドとして実装しましょう。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">Counter <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">setRefClass</span>(<span style="color:#e6db74">&#34;Counter&#34;</span>,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">Counter <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">setRefClass</span>(<span style="color:#e6db74">&#34;Counter&#34;</span>,
                        fields <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;n&#34;</span>,
                        methods <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(
                          increase <span style="color:#f92672">=</span> <span style="color:#a6e22e">function</span>() n <span style="color:#f92672">&lt;&lt;-</span> n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
@@ -116,15 +116,15 @@ cnt<span style="color:#f92672">$</span>n
 cnt <span style="color:#f92672">&lt;-</span> Counter<span style="color:#f92672">$</span><span style="color:#a6e22e">new</span>(n <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>)
 cnt<span style="color:#f92672">$</span><span style="color:#a6e22e">increase</span>()
 cnt<span style="color:#f92672">$</span>n
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## [1] 11</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## [1] 11</span>
 </code></pre></div><p>関数に渡して変更することもできます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">increase_it <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(x) x<span style="color:#f92672">$</span><span style="color:#a6e22e">increase</span>()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">increase_it <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">function</span>(x) x<span style="color:#f92672">$</span><span style="color:#a6e22e">increase</span>()
 <span style="color:#a6e22e">increase_it</span>(cnt)
 cnt<span style="color:#f92672">$</span>n
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## [1] 12</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## [1] 12</span>
 </code></pre></div><p>ちなみに参照オブジェクトかどうかは以下のように調べることができます。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">is</span>(cnt, <span style="color:#e6db74">&#34;refObject&#34;</span>)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## [1] TRUE</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">is</span>(cnt, <span style="color:#e6db74">&#34;refObject&#34;</span>)
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e">## [1] TRUE</span>
 </code></pre></div><h2 id="参考文献">参考文献</h2>
 <p><a href="https://www.kyoritsu-pub.co.jp/bookdetail/9784320124486">プロフェッショナル R―関数型プログラミング，オブジェクト指向，他言語インターフェースによる拡張―</a></p>
 <p>Rをどのように使うかを書いた本はたくさんありますが、この本はRが何のために生まれ、なぜそのような仕様になっているのかをRの主要開発者のJohn Chambers氏が詳細に語っている稀有な良書です。Rの言語仕様に興味がある人は長期休暇に読むと良いかも。Enjoy!</p>
@@ -293,7 +293,7 @@ cnt<span style="color:#f92672">$</span>n
           
         
         &nbsp;&bull;&nbsp;
-        2020
+        2021
 
         
           &nbsp;&bull;&nbsp;
