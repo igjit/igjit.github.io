@@ -1,4 +1,5 @@
 baseURL = "https://igjit.github.io/"
+publishDir = "docs/"
 languageCode = "ja"
 hasCJKLanguage = true
 title = "igjit status"
