@@ -1,4 +1,4 @@
-PUBLIC_DIR = public
+PUBLIC_DIR = docs
 HUGO_THEME = hugo_theme_pickles
 
 RMDS = $(wildcard content/posts/*/*/*.Rmd)
@@ -21,6 +21,6 @@ build:
 publish: build
 	git add $(PUBLIC_DIR)
 	git commit -m "Rebuilding site `date --iso-8601=seconds`"
-	git subtree push -P $(PUBLIC_DIR) origin master
+	git push origin master
 
 .PHONY: server draft build publish
